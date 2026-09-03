@@ -1,0 +1,518 @@
+/* ==========================================================================
+   CSS VARIABLES 
+   ========================================================================== */
+:root {
+    --primary: #1e293b;
+    --primary-dark: #0f172a;
+    --background: #f1f5f9;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #334155;
+    --text-heading: #0f172a;
+    --muted: #64748b;
+    --muted-light: #94a3b8;
+    --success: #10b981;
+    --danger: #ef4444;
+    
+    --radius-md: 6px;
+    --radius-lg: 10px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    
+    --sidebar-width: 260px;
+    --header-height: 80px;
+    
+    --transition-fast: 0.15s ease;
+}
+
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-heading);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURE
+   ========================================================================== */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.brand {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: var(--primary-dark);
+}
+
+.logo span {
+    font-weight: 300;
+    color: var(--muted);
+}
+
+.brand .subtitle {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.main-nav {
+    padding: 20px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+}
+
+.main-nav li a {
+    display: block;
+    padding: 12px 24px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    border-left: 3px solid transparent;
+}
+
+.main-nav li a:hover {
+    background-color: var(--background);
+    color: var(--primary-dark);
+}
+
+.main-nav li.active a {
+    background-color: var(--background);
+    border-left-color: var(--primary-dark);
+    font-weight: 500;
+    color: var(--primary-dark);
+}
+
+/* MAIN CONTENT AREA */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   TOP NAVBAR
+   ========================================================================== */
+.top-navbar {
+    height: var(--header-height);
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+}
+
+.header-left h2 {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+}
+
+.header-left p {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--background);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--success);
+}
+
+.status-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   DASHBOARD COMPONENTS
+   ========================================================================== */
+.dashboard-container {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.dashboard-header {
+    margin-bottom: 8px;
+}
+
+.dashboard-header h3 {
+    font-size: 1.5rem;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+/* SHARED CARD STYLES */
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+}
+
+.card-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.sub-title {
+    font-size: 0.9rem;
+    color: var(--text-heading);
+    margin-bottom: 12px;
+}
+
+/* INFO PANELS GRID */
+.info-panels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+/* ==========================================================================
+   EMPTY STATES
+   ========================================================================== */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--muted-light);
+}
+
+.empty-state.minimal {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.empty-state.boxed {
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: 40px 20px;
+    background-color: var(--background);
+}
+
+.empty-state.fill-height {
+    height: calc(100% - 32px);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--background);
+    padding: 20px;
+}
+
+.empty-icon {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--border);
+}
+
+.empty-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+
+.empty-desc {
+    font-size: 0.85rem;
+}
+
+.empty-desc.small {
+    font-size: 0.75rem;
+    margin-top: 8px;
+}
+
+/* ==========================================================================
+   SPECIFIC SECTIONS
+   ========================================================================== */
+/* LIVE MAP */
+.map-placeholder {
+    height: 450px;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SPLIT GRID (Search & Alerts) */
+.split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* VEHICLE SEARCH */
+.search-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+.search-input:focus {
+    border-color: var(--muted);
+}
+
+.search-btn {
+    padding: 10px 24px;
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.search-btn:hover {
+    background-color: var(--primary);
+}
+
+/* TABLES */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+}
+
+td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+}
+
+.empty-table-cell {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+    font-style: italic;
+    background-color: var(--background);
+}
+
+/* TRAFFIC ANALYTICS GRID */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.analytics-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    background-color: var(--background);
+}
+
+.analytics-title {
+    font-size: 0.9rem;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+}
+
+/* SYSTEM PIPELINE */
+.system-pipeline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px 0 16px 0;
+    margin-top: 16px;
+    border-top: 1px dashed var(--border);
+}
+
+.pipeline-step {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.pipeline-arrow {
+    color: var(--muted-light);
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    padding: 24px 32px;
+    border-top: 1px solid var(--border);
+    background-color: var(--surface);
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-heading);
+}
+
+footer .footer-subtitle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: normal;
+}
+
+
+@media (max-width: 1024px) {
+    .split-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .main-nav ul {
+        display: flex;
+        overflow-x: auto;
+        padding: 0 12px;
+    }
+    
+    .main-nav li a {
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        padding: 12px 16px;
+    }
+    
+    .main-nav li.active a {
+        border-left-color: transparent;
+        border-bottom-color: var(--primary-dark);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .top-navbar {
+        padding: 0 20px;
+    }
+    
+    .dashboard-container {
+        padding: 20px;
+    }
+    
+    .map-placeholder {
+        height: 300px;
+    }
+
+    .system-pipeline {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .pipeline-arrow {
+        transform: rotate(90deg);
+    }
+}

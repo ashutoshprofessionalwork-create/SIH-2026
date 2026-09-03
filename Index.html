@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANPR Vision - Traffic Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <h1>ANPR<span>VISION</span></h1>
+                </div>
+                <div class="subtitle">Traffic Intelligence</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="active"><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#vehicle-search">Vehicle Search</a></li>
+                    <li><a href="#live-tracking">Live Tracking</a></li>
+                    <li><a href="#camera-network">Camera Network</a></li>
+                    <li><a href="#traffic-analytics">Traffic Analytics</a></li>
+                    <li><a href="#blacklist">Blacklist / Watchlist</a></li>
+                    <li><a href="#alerts">Alerts</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="top-navbar">
+                <div class="header-left">
+                    <h2>Dashboard</h2>
+                    <p>City-wide vehicle monitoring and traffic intelligence</p>
+                </div>
+                <div class="header-right">
+                    <div class="system-status">
+                        <span class="status-indicator"></span>
+                        <span class="status-text">Operational</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-container">
+                <section id="dashboard" class="dashboard-header">
+                    <h3>Traffic Intelligence Dashboard</h3>
+                    <p class="section-subtitle">Monitor vehicle movement, camera infrastructure and urban traffic intelligence.</p>
+                </section>
+
+                <section class="info-panels-grid">
+                    <div class="card info-card">
+                        <h4 class="card-title">VEHICLE MONITORING</h4>
+                        <div class="empty-state minimal">
+                            <p class="empty-title">No vehicle data available</p>
+                            <p class="empty-desc">Connect the detection system to display vehicle activity.</p>
+                        </div>
+                    </div>
+                    <div class="card info-card">
+                        <h4 class="card-title">CAMERA NETWORK</h4>
+                        <div class="empty-state minimal">
+                            <p class="empty-title">No camera data available</p>
+                            <p class="empty-desc">Connect the camera network to display camera status.</p>
+                        </div>
+                    </div>
+                    <div class="card info-card">
+                        <h4 class="card-title">TRAFFIC ANALYTICS</h4>
+                        <div class="empty-state minimal">
+                            <p class="empty-title">No analytics available</p>
+                            <p class="empty-desc">Traffic analytics will appear when data is available.</p>
+                        </div>
+                    </div>
+                    <div class="card info-card">
+                        <h4 class="card-title">ACTIVE ALERTS</h4>
+                        <div class="empty-state minimal">
+                            <p class="empty-title">No active alerts</p>
+                            <p class="empty-desc">Real-time alerts will appear here.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="map-section">
+                    <div class="card map-card">
+                        <h4 class="card-title">Live Vehicle Map</h4>
+                        <div class="map-placeholder">
+                            <div class="empty-state">
+                                <div class="empty-icon">📍</div>
+                                <h3 class="empty-title">GIS MAP</h3>
+                                <p class="empty-desc">Vehicle and camera locations will appear here.</p>
+                                <p class="empty-desc small">Connect the GIS/map service to display real-time vehicle movement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="split-grid">
+                    <div class="card search-card" id="vehicle-search">
+                        <h4 class="card-title">Vehicle Search</h4>
+                        <div class="search-container">
+                            <input type="text" placeholder="Enter vehicle plate number" class="search-input">
+                            <button class="search-btn">SEARCH</button>
+                        </div>
+                        
+                        <div class="trajectory-section">
+                            <h5 class="sub-title">Vehicle Trajectory</h5>
+                            <div class="empty-state boxed">
+                                <div class="empty-icon">◯</div>
+                                <p class="empty-title">No vehicle selected</p>
+                                <p class="empty-desc">Search results and trajectory information will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card alerts-card">
+                        <h4 class="card-title">LIVE ALERTS</h4>
+                        <div class="empty-state fill-height">
+                            <div class="empty-icon">◯</div>
+                            <p class="empty-title">No active alerts</p>
+                            <p class="empty-desc">Real-time vehicle and watchlist alerts will appear here.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="live-tracking" class="card tracking-card">
+                    <h4 class="card-title">Live Tracking</h4>
+                    <div class="empty-state boxed">
+                        <div class="empty-icon">◯</div>
+                        <p class="empty-title">No active tracking session</p>
+                        <p class="empty-desc">Vehicle tracking information will appear here when a tracking request is initiated.</p>
+                    </div>
+                </section>
+
+                <section id="camera-network" class="card table-card">
+                    <h4 class="card-title">Camera Network</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Camera ID</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Last Detection</th>
+                                    <th>Vehicles Detected</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="empty-table-cell">No camera data available</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="traffic-analytics" class="card analytics-section">
+                    <h4 class="card-title">Urban Traffic Analytics</h4>
+                    <div class="analytics-grid">
+                        <div class="analytics-card empty-state minimal">
+                            <h5 class="analytics-title">Vehicle Volume</h5>
+                            <p class="empty-title">No data available</p>
+                        </div>
+                        <div class="analytics-card empty-state minimal">
+                            <h5 class="analytics-title">Traffic Density</h5>
+                            <p class="empty-title">No data available</p>
+                        </div>
+                        <div class="analytics-card empty-state minimal">
+                            <h5 class="analytics-title">Peak Periods</h5>
+                            <p class="empty-title">No data available</p>
+                        </div>
+                        <div class="analytics-card empty-state minimal">
+                            <h5 class="analytics-title">Average Travel Time</h5>
+                            <p class="empty-title">No data available</p>
+                        </div>
+                        <div class="analytics-card empty-state minimal">
+                            <h5 class="analytics-title">Congestion Hotspots</h5>
+                            <p class="empty-title">No data available</p>
+                        </div>
+                        <div class="analytics-card empty-state minimal">
+                            <h5 class="analytics-title">Origin-Destination Patterns</h5>
+                            <p class="empty-title">No data available</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="blacklist" class="card table-card">
+                    <h4 class="card-title">Blacklist / Watchlist</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Plate Number</th>
+                                    <th>Reason</th>
+                                    <th>Status</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="empty-table-cell">No watchlist records available</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="alerts" class="card table-card">
+                    <h4 class="card-title">Alerts</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Plate Number</th>
+                                    <th>Camera</th>
+                                    <th>Location</th>
+                                    <th>Alert Type</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="6" class="empty-table-cell">No alerts available</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </main>
+            <footer>
+                <p>ANPR Vision</p>
+                <p class="footer-subtitle">City-Wide Traffic Intelligence Platform</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
